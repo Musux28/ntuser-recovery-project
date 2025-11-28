@@ -33,5 +33,5 @@ User registry hives contain key forensic traces: recently executed programs, ope
 Step-by-step commands and scripts are included in `/scripts`. Use the work copy files in `/hives` and the acquisition images in `/acquisition`.
 
 ## Team
-Antonio Musumeci 
+Antonio Musumeci - 
 Clark Loeffer (GitHub: `@teammate-username`)
