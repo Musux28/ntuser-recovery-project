@@ -39,26 +39,26 @@ python -m pip install python-registry
 
 ## Project structure
 /ntuser-registry-project
-├─ README.md
-├─ acquisition/
+|-- README.md
+|-- acquisition/
 │   ├─ VM_Image_A.raw
 │   ├─ VM_Image_A.sha256.txt
 │   └─ acquisition_log.txt
-├─ hives/
+|-- hives/
 │   ├─ NTUSER.DAT.copy0
 │   ├─ NTUSER_work.dat
 │   ├─ SYSTEM
 │   ├─ SOFTWARE
 │   ├─ SECURITY
 │   └─ SAM
-├─ scripts/
+|-- scripts/
 │   ├─ dump_user_registry.py
 │   ├─ decode_userassist_detailed.py
 │   └─ extract_lnks.ps1
-├─ artifacts/
+|--artifacts/
 │   ├─ lnk/
 │   └─ prefetch/
-├─ docs/
+|-- docs/
 │   └─ report.pdf
 └─ presentation/
     └─ slides.pdf
