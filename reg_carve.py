@@ -2,7 +2,7 @@
 import os
 import mmap
 
-# ---- Constants --------------------------------------------------------
+# Constants 
 
 # Registry hive header: 72 65 67 66 == "regf"
 HEADER = b"\x72\x65\x67\x66"
@@ -15,7 +15,7 @@ FILE_LEN_OFFSET = 0x28        # offset from regf to length field
 FILE_LEN_SIZE = 4             # 4-byte little-endian length
 
 
-# ---- Core logic -------------------------------------------------------
+# Core logic
 
 def carve_image(input_path: str, output_dir: str = "carved_output") -> None:
     """
@@ -101,7 +101,7 @@ def carve_image(input_path: str, output_dir: str = "carved_output") -> None:
     print(f"    NTUSER hives carved: {carved}")
 
 
-# ---- CLI entrypoint ---------------------------------------------------
+# CLI entrypoint
 
 if __name__ == "__main__":
     print("=== Image Carver → NTUSER.DAT extractor ===")
