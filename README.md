@@ -3,10 +3,17 @@ NTUSER.DAT recovery and analysis for System Administration course
 # NTUSER.DAT Recovery & Analysis
 
 ## Project Overview
-This project focuses on recovering deleted or corrupted NTUSER.DAT hive files from a VM image with Windows 10 and extracting user activity artifacts (UserAssist, RecentDocs, ShellBags). We then correlate registry artifacts with file system artifacts (LNK, Prefetch, MFT) to build a timeline of user actions.
+This project focuses on extracting and analysing core Windows registry hive files from a forensic VM image, and locating evidence of a user’s actions on the device. Hives of interest: NTUSER.DAT (per-user) and the system-level hives SYSTEM, SOFTWARE, SECURITY, and SAM. Analysis is performed using FTK Imager / FTK Registry Viewer and Python tools to produce parsed outputs and a short timeline of relevant user activity.
 
 ## Relevance
 User registry hives contain key forensic traces: recently executed programs, opened documents, mounted devices, and user preferences. Recovering and validating these hives is essential for user activity reconstruction in incident response and forensic investigations.
+
+## Objective
+-Export the registry hives from a VM disk image and create verified work copies.
+-Validate hive headers and parse relevant keys (UserAssist, RecentDocs, MUICache, MountedDevices, MountPoints2, ShellBags).
+-Extract correlated filesystem artifacts referenced by registry entries (LNK, Prefetch) and compute hashes.
+-Produce a concise timeline linking registry evidence to filesystem artifacts and user actions.
+-Provide reproducible scripts and documentation so another examiner can repeat the procedure.
 
 ## Methodology
 - **Environment**
