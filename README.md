@@ -33,34 +33,47 @@ User registry hives contain key forensic traces: recently executed programs, ope
 -Optional tools: RegRipper (Perl), Registry Explorer (Eric Zimmerman), HxD (hex editor).
 python -m pip install python-registry
 
-├─ carved_evidence/
-│ ├─ carved_jpgs/ 
-│ │ ├─ 00000879.jpg
-│ │ ├─ 00000880.jpg
-│ │ └─ ...
-│ ├─ carved_pdfs/
-│ │ ├─ 00000926.pdf
-│ │ └─ ...
-│ ├─ audit.txt 
-│ └─ readme.md
-├─ code/
-│ └─ reg_carve.py 
-├─ evidence_export/ 
-│ ├─ Application.evtx
-│ ├─ HardwareEvents.evtx
-│ ├─ Internet Explorer.evtx
-│ ├─ Key Management Service.evtx
-│ ├─ NTUSER.DAT
-│ ├─ SAM
-│ ├─ SECURITY
-│ ├─ SYSTEM
-│ ├─ Security.evtx
-│ ├─ Setup.evtx
-│ ├─ System.evtx
-│ └─ readme.md
-├─ .gitignore
-└─ README.md # 
+##  Project Structure
+                         
+├-- carved_evidence/
+│   ├-- README.md                    
+│   ├-- carved_jpgs/
+│       ├-- 00000879.jpg   
+│       ├-- 00000880.jpg 
+│       ├-- 00000881.jpg 
+│       ├-- 00000882.jpg 
+│       ├-- 00000882.jpg 
+│       ├-- ...
+│       └-- readme.md      
+│   ├-- carved_jpgs/
+│       ├-- 00000926.pdf  
+│       ├-- 00000927.pdf  
+│       ├-- 00000928.pdf 
+│       ├-- 00000929.pdf 
+│       ├-- readme.md 
+│       ├-- audit.txt
+│       └-- readme.md
+├-- code/
+│       └-- reg_carve.py
+├-- evidence_export/
+│       ├-- Application.evtx   
+│       ├-- Hardware Explorer.evtx 
+│       ├-- Internet Explorer.evtx
+│       ├-- Key Management Service.evtx 
+│       ├-- NTUSER.DAT
+│       ├-- SAM   
+│       ├-- SECURITY
+│       ├-- SYSTEM
+│       ├-- Security.evtx 
+│       ├-- Setup.evtx
+│       ├-- System.evtx   
+│       └-- readme.md
+├-- .gitignore
+├-- README.md   # Main documentation (you are here)
 
+```
+
+---
 ## Methodology 
 ## Phase 1 — Acquisition & verification
 -Acquire a read-only forensic image of the VM (FTK Imager or dd).
