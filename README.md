@@ -3,19 +3,15 @@
 Automated / Reproducible workflow to extract, validate and analyse Windows registry hives from a VM image and locate user activity evidence using FTK Imager, FTK Registry Viewer and Python tools.
 
 ## Project Overview
-This project extracts and analyses core Windows registry hives from a forensic VM image to identify and correlate user activity. Hives of interest are the per-user NTUSER.DAT and the system-level hives SYSTEM, SOFTWARE, SECURITY and SAM. We use FTK Imager / FTK Registry Viewer for safe extraction and visual inspection, and Python utilities for automated dumps and initial parsing (UserAssist, RecentDocs, MountedDevices, ShellBags).
+This project extracts and analyses core Windows registry hives from a forensic VM image and locates evidence of a user’s actions on the device. Hives of interest: NTUSER.DAT (per-user) and the system hives SYSTEM, SOFTWARE, SECURITY, and SAM. The workflow used in this project is forensic: we mount the Windows partition read-only from Kali Linux (forensic mode), copy the hive files and event logs to a shared folder, then analyse the files on the host using FTK Registry Viewer and other GUI tools.
 
 ## Relevance
 User registry hives contain key forensic traces: recently executed programs, opened documents, mounted devices, and user preferences. Recovering and validating these hives is essential for user activity reconstruction in incident response and forensic investigations.
 
 ## Objective
-From exported registry hives we aim to automatically and reproducibly:
-
--Validate hive integrity (REGF header / hbin structure).
--Produce machine-readable exports of key forensic artifacts: UserAssist, RecentDocs, MUICache, MountedDevices, MountPoints2, and ShellBags.
--Extract and hash correlated filesystem artifacts referenced in the registry (LNK, Prefetch).
--Correlate registry + filesystem evidence to build a short timeline of user actions.
--Provide reproducible scripts, logs and a playbook so another examiner can repeat the analysis.
+-Export registry hives from a forensic image (read-only), verify integrity, and examine keys and values that indicate user activity (UserAssist, RecentDocs, MUICache, MountedDevices, MountPoints2, ShellBags).
+-Correlate registry findings with exported filesystem artifacts (LNK, Prefetch, event logs) and produce a short timeline of relevant user actions.
+-Keep a full acquisition log and file hashes for reproducibility and chain of custody.
 
 ## Results summary (planned vs current status)
 
@@ -37,31 +33,33 @@ From exported registry hives we aim to automatically and reproducibly:
 -Optional tools: RegRipper (Perl), Registry Explorer (Eric Zimmerman), HxD (hex editor).
 python -m pip install python-registry
 
-## Project structure
-/ntuser-registry-project
-|-- README.md
-|-- acquisition/
-│   ├─ VM_Image_A.raw
-│   ├─ VM_Image_A.sha256.txt
-│   └─ acquisition_log.txt
-|-- hives/
-│   ├─ NTUSER.DAT.copy0
-│   ├─ NTUSER_work.dat
-│   ├─ SYSTEM
-│   ├─ SOFTWARE
-│   ├─ SECURITY
-│   └─ SAM
-|-- scripts/
-│   ├─ dump_user_registry.py
-│   ├─ decode_userassist_detailed.py
-│   └─ extract_lnks.ps1
-|--artifacts/
-│   ├─ lnk/
-│   └─ prefetch/
-|-- docs/
-│   └─ report.pdf
-└─ presentation/
-    └─ slides.pdf
+├─ carved_evidence/
+│ ├─ carved_jpgs/ 
+│ │ ├─ 00000879.jpg
+│ │ ├─ 00000880.jpg
+│ │ └─ ...
+│ ├─ carved_pdfs/
+│ │ ├─ 00000926.pdf
+│ │ └─ ...
+│ ├─ audit.txt 
+│ └─ readme.md
+├─ code/
+│ └─ reg_carve.py 
+├─ evidence_export/ 
+│ ├─ Application.evtx
+│ ├─ HardwareEvents.evtx
+│ ├─ Internet Explorer.evtx
+│ ├─ Key Management Service.evtx
+│ ├─ NTUSER.DAT
+│ ├─ SAM
+│ ├─ SECURITY
+│ ├─ SYSTEM
+│ ├─ Security.evtx
+│ ├─ Setup.evtx
+│ ├─ System.evtx
+│ └─ readme.md
+├─ .gitignore
+└─ README.md # 
 
 ## Methodology 
 ## Phase 1 — Acquisition & verification
