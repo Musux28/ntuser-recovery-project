@@ -12,7 +12,7 @@ Windows registry hives are a rich source of forensic evidence: they capture user
 -Demonstrates a repeatable, forensically-sound extraction workflow (read-only mount → copy → offline analysis).
 -Teaches core forensic skills: safe acquisition, registry structure inspection, artifact correlation (Registry ↔ LNK/Prefetch/EVTX).
 -Produces experience with common forensic tools (Kali Live in forensic mode, FTK Imager / FTK Registry Viewer, hex checks)
-
+---
 ##  Project Structure
 ```                         
 ├-- carved_evidence/                    
@@ -118,7 +118,7 @@ The report includes multiple FTK Registry Viewer screenshots and parsed observat
 
 -RecentDocs evidence (Software → Microsoft → Windows → CurrentVersion → Explorer → RecentDocs → .jpg/.png/.pdf/Folder)
  The RecentDocs keys include entries for image files (.jpg, .png) and PDFs — implying the user accessed or downloaded these files (report suggests they were saved in a OneDrive folder and then transferred to the export drive). Screenshots of RecentDocs entries and hex blob values are provided in the report.
-
+---
 ## Visual evidence included
  Multiple FTK Registry Viewer screenshots displaying TypedURLs, MountPoints2 (DefaultIcon, DefaultLabel), and RecentDocs entries; hex pane and key properties are captured in the PDF.
 
@@ -128,7 +128,7 @@ The report includes multiple FTK Registry Viewer screenshots and parsed observat
 | `Explorer\MountPoints2\{GUID}\_Autorun\DefaultIcon` | Mounted device path | Contains `E:\` (mount point) — shows external drive usage.                             |
 | `Explorer\RecentDocs` (.jpg/.pdf)                   |        Recent files | Names of images and PDFs accessed — likely downloaded to OneDrive and later exported.  |
 
-
+---
 ## Conclusion, lessons learned & next steps
  ## Conclusion
  The registry analysis successfully identified web activity (IE typed URLs), recently accessed documents (images/PDFs), and a mounted removable device used to export evidence (device label DEFT_8, mount E:\). These  items provide corroborating artifacts for reconstructing a short user activity timeline.
@@ -137,7 +137,7 @@ The report includes multiple FTK Registry Viewer screenshots and parsed observat
 -Always perform acquisition in true forensic mode (read-only) to avoid modifying evidence.
 -Registry keys such as MountPoints2 and RecentDocs are high-value, quickly actionable sources for linking user activity and removable media use.
 -Preserve original exported hive files as immutable — perform analysis only on copies (e.g., NTUSER_work.dat).
-
+---
 ## Team
 Antonio Musumeci - 
 Clark Loeffer (GitHub: `@teammate-username`)
