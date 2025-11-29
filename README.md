@@ -88,11 +88,15 @@ Windows registry hives are a rich source of forensic evidence: they capture user
 2)Mount read-only:
 sudo mkdir -p /mnt/windows
 sudo mount -o ro /dev/sdXN /mnt/windows
+
+```
 # or: sudo ntfs-3g -o ro /dev/sdXN /mnt/windows
 
+```
 3)Create and mount a shared folder to transfer files to the host, e.g. /mnt/shared.
 4)Copy hives & logs:
 
+```
 sudo cp /mnt/windows/Windows/System32/config/SYSTEM /mnt/shared/
 sudo cp /mnt/windows/Windows/System32/config/SOFTWARE /mnt/shared/
 sudo cp /mnt/windows/Windows/System32/config/SECURITY /mnt/shared/
@@ -100,8 +104,13 @@ sudo cp /mnt/windows/Windows/System32/config/SAM /mnt/shared/
 sudo cp "/mnt/windows/Users/<username>/NTUSER.DAT" /mnt/shared/
 sudo cp /mnt/windows/Windows/System32/winevt/Logs/*.evtx /mnt/shared/
 
+```
 5)On the host, compute and record SHA-256 for each exported file:
+
+```
 sha256sum /path/to/shared/NTUSER.DAT > NTUSER.DAT.sha256.txt
+
+```
 Add all metadata (operator, date/time, tool) to acquisition/acquisition_log.txt.
 
 6)Analyse exported hives in FTK Registry Viewer: open hive files and inspect keys of interest (UserAssist, RecentDocs, TypedURLs, MountPoints2, MUICache). Export screenshots and text for reporting.
