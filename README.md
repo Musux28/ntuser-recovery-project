@@ -34,7 +34,7 @@ User registry hives contain key forensic traces: recently executed programs, ope
 python -m pip install python-registry
 
 ##  Project Structure
-                         
+```                         
 ├-- carved_evidence/
 │   ├-- README.md                    
 │   ├-- carved_jpgs/
@@ -73,7 +73,7 @@ python -m pip install python-registry
 
 ```
 
----
+
 ## Methodology 
 ## Phase 1 — Acquisition & verification
 -Acquire a read-only forensic image of the VM (FTK Imager or dd).
