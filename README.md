@@ -35,8 +35,7 @@ python -m pip install python-registry
 
 ##  Project Structure
 ```                         
-├-- carved_evidence/
-│   ├-- README.md                    
+├-- carved_evidence/                    
 │   ├-- carved_jpgs/
 │       ├-- 00000879.jpg   
 │       ├-- 00000880.jpg 
@@ -51,8 +50,9 @@ python -m pip install python-registry
 │       ├-- 00000928.pdf 
 │       ├-- 00000929.pdf 
 │       ├-- readme.md 
-│       ├-- audit.txt
 │       └-- readme.md
+│   ├-- audi.txt/
+│   ├-- readme.md/
 ├-- code/
 │       └-- reg_carve.py
 ├-- evidence_export/
