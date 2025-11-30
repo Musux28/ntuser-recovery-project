@@ -52,6 +52,7 @@ Windows registry hives are a rich source of forensic evidence: they capture user
 │       ├-- System.evtx   
 │       └-- readme.md
 ├-- .gitignore
+├-- BFOR519 - Project-1.pdf
 ├-- README.md   # Main documentation (you are here)
 
 ```
