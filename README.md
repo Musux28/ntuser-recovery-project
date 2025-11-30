@@ -9,9 +9,10 @@ This project extracts and analyses Windows registry hives and application/event 
 ## Project Relevance
 Windows registry hives are a rich source of forensic evidence: they capture user activity (recent documents, typed URLs, run counts), device mounts (USB drives), and system state. Recovering and interpreting this data matters in cases such as incident response, insider threat investigations, and digital forensic coursework.
  ## Why this project?
--Demonstrates a repeatable, forensically-sound extraction workflow (read-only mount → copy → offline analysis).
+ -Demonstrates a repeatable, forensically-sound extraction workflow (read-only mount → copy → offline analysis).
 -Teaches core forensic skills: safe acquisition, registry structure inspection, artifact correlation (Registry ↔ LNK/Prefetch/EVTX).
 -Produces experience with common forensic tools (Kali Live in forensic mode, FTK Imager / FTK Registry Viewer, hex checks)
+
 ---
 ##  Project Structure
 ```                         
