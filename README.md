@@ -15,6 +15,9 @@ Windows registry hives are a rich source of forensic evidence: they capture user
 ---
 ##  Project Structure
 ```                         
+├-- Reg Reports/                    
+│   ├-- NTUSER Report/
+│   ├-- System Report/        
 ├-- carved_evidence/                    
 │   ├-- carved_jpgs/
 │       ├-- 00000879.jpg   
