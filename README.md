@@ -76,7 +76,7 @@ Windows registry hives are a rich source of forensic evidence: they capture user
 ## Architecture / workflow (high-level)
 -Run scripts/dump_user_registry.py (python-registry) to export top-level keys and dump UserAssist, RecentDocs, MountedDevices, MountPoints2.
 -Run scripts/decode_userassist_detailed.py to search UserAssist blobs for plausible FILETIME and run-count heuristics.
-
+```
 [VM disk image]  --(Kali forensic read-only mount)-->  /mnt/windows
     |
     +-- copy Windows/System32/config/* (SYSTEM, SOFTWARE, SECURITY, SAM)
@@ -86,7 +86,7 @@ Windows registry hives are a rich source of forensic evidence: they capture user
     |
     +-- Open hives in FTK Registry Viewer -> inspect & export artifacts
     +-- Correlate with exported LNK / Prefetch / EVTX -> timeline
-
+```
 
 ## Step-by-step process (reproducible)
 1)Boot Kali in forensic mode; identify the Windows partition (fdisk -l, lsblk -f).
