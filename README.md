@@ -129,7 +129,7 @@ Add all metadata (operator, date/time, tool) to acquisition/acquisition_log.txt.
 
 ## Results — key findings & evidence
 The report includes multiple FTK Registry Viewer screenshots and parsed observations showing clear user activity. Key findings extracted from the NTUSER.DAT hive:
-
+```
 -Typed Internet Explorer URLs (Software → Microsoft → Internet Explorer → TypedURLs)
  The TypedURLs entries list websites visited by the user (recent → older). This confirms web activity and specific domains visited (see screenshot and hex view).
 
@@ -138,7 +138,7 @@ The report includes multiple FTK Registry Viewer screenshots and parsed observat
 
  -RecentDocs evidence (Software → Microsoft → Windows → CurrentVersion → Explorer → RecentDocs → .jpg/.png/.pdf/Folder)
  The RecentDocs keys include entries for image files (.jpg, .png) and PDFs — implying the user accessed or downloaded these files (report suggests they were saved in a OneDrive folder and then transferred to the export drive). Screenshots of RecentDocs entries and hex blob values are provided in the report.
-
+```
 
 ---
 ## Visual evidence included
@@ -156,10 +156,11 @@ The report includes multiple FTK Registry Viewer screenshots and parsed observat
  The registry analysis successfully identified web activity (IE typed URLs), recently accessed documents (images/PDFs), and a mounted removable device used to export evidence (device label DEFT_8, mount E:\). These  items provide corroborating artifacts for reconstructing a short user activity timeline.
 
  ## Lessons learned
+ ```
  -Always perform acquisition in true forensic mode (read-only) to avoid modifying evidence.
 -Registry keys such as MountPoints2 and RecentDocs are high-value, quickly actionable sources for linking user activity and removable media use.
 -Preserve original exported hive files as immutable — perform analysis only on copies (e.g., NTUSER_work.dat).
-
+```
 ---
 ## Team
 Antonio Musumeci - 
