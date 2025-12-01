@@ -61,21 +61,22 @@ Windows registry hives are a rich source of forensic evidence: they capture user
 
 ## Methodology 
 ## Setup & environment
----
+```
 -Acquisition host: Kali Linux (booted in forensic mode / Live ISO) used to mount Windows partition read-only.
 -Analysis host: Windows host running FTK Imager / FTK Registry Viewer (offline analysis of copied files).
 -Storage: a shared folder between the forensic VM and host was used to transfer exported hives & logs.
----
+```
 
 ## Tools & datasets used
----
+```
 -Kali Linux (forensic mode) — read-only mounting and copying.
 -ntfs-3g / mount — to mount NTFS partition read-only.
 -FTK Imager / FTK Registry Viewer — open and inspect registry hives visually; export screenshots, .reg or text.
 -Hex editor (HxD) — verify signatures and offsets where necessary.
 -sha256sum / CertUtil — compute & record file hashes.
 -Source dataset: Windows VM image created for the lab; exported hive files (NTUSER.DAT, SYSTEM, SOFTWARE, SECURITY, SAM) and event logs (EVTX).
----
+```
+
 ## Architecture / workflow (high-level)
 -Run scripts/dump_user_registry.py (python-registry) to export top-level keys and dump UserAssist, RecentDocs, MountedDevices, MountPoints2.
 -Run scripts/decode_userassist_detailed.py to search UserAssist blobs for plausible FILETIME and run-count heuristics.
